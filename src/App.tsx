@@ -26,7 +26,7 @@ function App() {
 		icon: "",
 	});
 	const envValue = process.env.REACT_APP_API_KEY;
-	const api = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${envValue}&lang=ja&units=metric`;
+	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${envValue}&lang=ja&units=metric`;
 
 	const getWeather = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
