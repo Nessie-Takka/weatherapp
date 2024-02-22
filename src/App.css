@@ -1,3 +1,28 @@
+.video {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.container {
+	/*要素の配置*/
+	position: absolute;
+	/*要素を天地中央寄せ*/
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	/*見た目の調整*/
+	color: #fff;
+	text-shadow: 0 0 15px #666;
+
+	width: 50vw;
+	text-align: center;
+	padding: 40px 20px;
+	border-radius: 15px;
+	backdrop-filter: blur(20px);
+	box-shadow: 4px 4px 13px 5px rgba(0, 0, 0, 0.25);
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
@@ -16,24 +41,7 @@ body {
 }
 
 /* App.js */
-.wrapper {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: url("./background-image.jpg") center center no-repeat;
-	background-size: cover;
-}
 
-.container {
-	width: 50vw;
-	text-align: center;
-	padding: 40px 20px;
-	border-radius: 15px;
-	backdrop-filter: blur(20px);
-	box-shadow: 4px 4px 13px 5px rgba(0, 0, 0, 0.25);
-}
 @media only screen and (max-width: 700px) {
 	.container {
 		width: 80vw;
@@ -102,7 +110,8 @@ button:hover {
 	color: #333;
 }
 
-.results-condition {
+.results-condition,
+.results-humidity {
 	display: flex;
 	align-items: center;
 	justify-content: center;

@@ -3,7 +3,8 @@ import Form from "./components/Form";
 import Results from "./components/Results";
 import Title from "./components/Title";
 import Loading from "./components/Loading";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import sea_movie from "./media/sea.mp4";
 
 type ResultsStateType = {
 	country: string;
@@ -52,9 +53,17 @@ function App() {
 		fetchData();
 	};
 
+	const videoRef = useRef<HTMLVideoElement>(null);
+	useEffect(() => {
+		videoRef.current?.play();
+	}, []);
+
 	return (
 		<>
 			<div className="wrapper">
+				<video className="video" autoPlay muted loop ref={videoRef}>
+					<source src={sea_movie} type="video/mp4" />
+				</video>
 				<div className="container">
 					<Title />
 					<Form setCity={setCity} getWeather={getWeather} city={city} />

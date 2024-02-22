@@ -15,9 +15,9 @@ const Results = ({ results }: ResultsPropsType) => {
 		<>
 			{cityName && <div className="results-city">{cityName}</div>}
 			{country && <div className="results-country">{country}</div>}
-			{temperature && <div className="results-temp">{temperature}</div>}
+			{temperature && <div className="results-temp">{temperature}℃</div>}
 			{conditionText && <div className="results-condition">{conditionText}</div>}
-			{humidity && <div className="results-humidity">{humidity}</div>}
+			{humidity && <div className="results-humidity">湿度:{humidity}%</div>}
 			{icon && (
 				<div>
 					{/* eslint-disable-next-line jsx-a11y/alt-text */}
