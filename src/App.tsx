@@ -61,7 +61,7 @@ function App() {
 	return (
 		<>
 			<div className="wrapper">
-				<video className="video" autoPlay muted loop ref={videoRef}>
+				<video className="video" autoPlay muted loop playsInline ref={videoRef}>
 					<source src={sea_movie} type="video/mp4" />
 				</video>
 				<div className="container">
