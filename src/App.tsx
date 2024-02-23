@@ -54,9 +54,19 @@ function App() {
 		fetchData();
 	};
 	//背景動画を切り替える
-	const [background, setBackground] = useState("sea");
+	const [background, setBackground] = useState("sky");
 	const handleSwitch = () => {
-		setBackground((prevBackground) => (prevBackground === "sea" ? "forest" : "sea"));
+		setBackground((prev) => {
+			if (prev === "sea") {
+				return "forest";
+			} else if (prev === "forest") {
+				return "rain";
+			} else if (prev === "rain") {
+				return "sky";
+			} else {
+				return "sea";
+			}
+		});
 	};
 
 	return (
