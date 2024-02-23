@@ -1,17 +1,6 @@
-.video {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	min-width: 100%;
-	min-height: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-
 .container {
 	/*要素の配置*/
-	position: absolute;
+	position: fixed;
 	/*要素を天地中央寄せ*/
 	top: 50%;
 	left: 50%;
@@ -74,7 +63,7 @@ input[type="text"] {
 	font-size: 20px;
 }
 
-button {
+.weather-btn {
 	width: 40%;
 	border: 0;
 	padding: 8px 20px;
@@ -141,4 +130,31 @@ button:hover {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+/* Video.js */
+.video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+/* Switch.js */
+.switch-btn {
+	font-size: 1.5rem;
+	background-color: #f15186;
+	color: #fff;
+	border-radius: 100%;
+	padding: 35px 20px;
+	border-color: #f15186;
+	box-shadow: #fff;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
 }

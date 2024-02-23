@@ -3,8 +3,9 @@ import Form from "./components/Form";
 import Results from "./components/Results";
 import Title from "./components/Title";
 import Loading from "./components/Loading";
-import { useState, useRef, useEffect } from "react";
-import sea_movie from "./media/sea.mp4";
+import { useState } from "react";
+import Video from "./components/Video";
+import Switch from "./components/Switch";
 
 type ResultsStateType = {
 	country: string;
@@ -16,6 +17,7 @@ type ResultsStateType = {
 };
 
 function App() {
+	//気象情報を取得する
 	const [loading, setLoading] = useState<boolean>(false);
 	const [city, setCity] = useState<string>("");
 	const [results, setResults] = useState<ResultsStateType>({
@@ -28,7 +30,6 @@ function App() {
 	});
 	const envValue = process.env.REACT_APP_API_KEY;
 	const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${envValue}&lang=ja&units=metric`;
-
 	const getWeather = (e: React.ChangeEvent<HTMLInputElement>) => {
 		e.preventDefault();
 		setLoading(true);
@@ -39,7 +40,7 @@ function App() {
 				setResults({
 					country: data.sys.country,
 					cityName: data.name,
-					temperature: data.main.temp,
+					temperature: String(Math.floor(Number(data.main.temp) * 10) / 10),
 					conditionText: data.weather[0].description,
 					humidity: data.main.humidity,
 					icon: data.weather[0].icon,
@@ -47,27 +48,28 @@ function App() {
 				setCity("");
 				setLoading(false);
 			} catch (error) {
-				alert("無効な入力値です");
+				alert("無効な入力値です。入力し直してください");
 			}
 		}
 		fetchData();
 	};
-
-	const videoRef = useRef<HTMLVideoElement>(null);
-	useEffect(() => {
-		videoRef.current?.play();
-	}, []);
+	//背景動画を切り替える
+	const [background, setBackground] = useState("sea");
+	const handleSwitch = () => {
+		setBackground((prevBackground) => (prevBackground === "sea" ? "forest" : "sea"));
+	};
 
 	return (
 		<>
 			<div className="wrapper">
-				<video className="video" autoPlay muted loop playsInline ref={videoRef}>
-					<source src={sea_movie} type="video/mp4" />
-				</video>
+				<Video background={background} />
 				<div className="container">
 					<Title />
 					<Form setCity={setCity} getWeather={getWeather} city={city} />
 					{loading ? <Loading /> : <Results results={results} />}
+				</div>
+				<div className="button-container">
+					<Switch handleSwitch={handleSwitch} />
 				</div>
 			</div>
 		</>
