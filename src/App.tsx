@@ -7,6 +7,7 @@ import { useState } from "react";
 import Video from "./components/Video";
 import Switch from "./components/Switch";
 import PlayBtn from "./components/PlayBtn";
+import Geolocation from "./components/Geolocation";
 
 type ResultsStateType = {
 	country: string;
@@ -54,6 +55,7 @@ function App() {
 		}
 		fetchData();
 	};
+
 	//背景動画を切り替える
 	const [background, setBackground] = useState("sky");
 	const handleSwitch = () => {
@@ -78,7 +80,9 @@ function App() {
 					<Title />
 					<Form setCity={setCity} getWeather={getWeather} city={city} />
 					{loading ? <Loading /> : <Results results={results} />}
+					<Geolocation />
 				</div>
+
 				<div className="button-container">
 					<Switch handleSwitch={handleSwitch} />
 					<PlayBtn />

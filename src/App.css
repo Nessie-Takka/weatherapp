@@ -95,6 +95,20 @@ button:hover {
 }
 
 /* Results.js */
+.results-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.results-text {
+	margin-right: 10px;
+}
+
+.results-icon {
+	margin: 20px 0;
+}
+
 .results-city {
 	font-size: 4rem;
 }
@@ -120,6 +134,23 @@ button:hover {
 	align-items: center;
 	justify-content: center;
 	font-size: 2.5rem;
+}
+
+/*Geolocation.tsx*/
+.weather-icons-container {
+	display: flex;
+	padding-top: 30px;
+	justify-content: center;
+}
+
+.weather-date {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-weight: 800;
+	font-size: 2.5rem;
+	margin: 10px;
 }
 
 /* Loading.js */
