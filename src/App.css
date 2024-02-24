@@ -157,6 +157,14 @@ button:hover {
 	}
 }
 
+@media screen and (max-width: 481px) {
+	.weather-icons-container,
+	.weather-date,
+	h3 {
+		display: none;
+	}
+}
+
 /* Loading.js */
 .loading {
 	border: 4px solid #f15186;
