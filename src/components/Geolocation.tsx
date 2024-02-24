@@ -38,7 +38,7 @@ const Geolocation = () => {
 			<div className="geolocation">
 				{weatherData ? (
 					<>
-						<h3>5日間の天気</h3>
+						<h3>5日間の現在地の天気</h3>
 						<div className="weather-icons-container">
 							{weatherData.list
 								.filter((item: any, index: number) => index % 8 === 0)
