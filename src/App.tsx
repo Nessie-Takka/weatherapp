@@ -6,6 +6,7 @@ import Loading from "./components/Loading";
 import { useState } from "react";
 import Video from "./components/Video";
 import Switch from "./components/Switch";
+import PlayBtn from "./components/PlayBtn";
 
 type ResultsStateType = {
 	country: string;
@@ -80,6 +81,7 @@ function App() {
 				</div>
 				<div className="button-container">
 					<Switch handleSwitch={handleSwitch} />
+					<PlayBtn />
 				</div>
 			</div>
 		</>
